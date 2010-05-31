@@ -1,1 +1,1 @@
-require 'head_elements'
+require 'pillow'

@@ -1,4 +1,4 @@
-HeadElements
+Pillow
 ============
 
 The aim of this plugin is to offer a simple interface helpers for your layouts to set page titles and meta tags for your pages based on your current routes. 
@@ -10,16 +10,16 @@ Example
 
 Like this:
 
-root_meta_method.title = 'Welcome to my homepage"
-root_meta_method.metas[:keywords] = "Web Developer, Rails Developer, Plugin author..."
+root_pillow.title = 'Welcome to my homepage"
+root_pillow.metas[:keywords] = "Web Developer, Rails Developer, Plugin author..."
 
 This is a work in progress but this is what the plugin does(partally).
 
-In your layouts you will have a helper method. So far called meta_helper.
+In your layouts you will have a helper method. So far called pillow_helper.
 
 <html>
   <head>
-    <%= meta_helper %>
+    <%= pillow_helper %>
   </head>
   <body>
   ...
@@ -34,7 +34,7 @@ What this will do is try to match the current controller & action and find the a
 TODO
 =======
 
-* A config/head_elements.rb file so you can set the titles and meta tags there.
-* Currently to use this plugin you need to run HeadElements.enable in your app code, because the plugins are loaded before your app's routes are set, so the plugin can't find any route and therefore it can't create the helpers.
+* A config/pillow.rb file so you can set the titles and meta tags there.
+* Currently to use this plugin you need to run Pillow.enable in your app code, because the plugins are loaded before your app's routes are set, so the plugin can't find any route and therefore it can't create the helpers.
 
 Copyright (c) 2010 Daniel Roux, released under the MIT license

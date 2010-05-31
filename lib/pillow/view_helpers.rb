@@ -1,4 +1,4 @@
-module HeadElements
+module Pillow
   module ViewHelpers        
     def self.included(base)    
       ExtractedRoute.extracted_routes.each do |r|        
@@ -10,10 +10,10 @@ module HeadElements
       end
     end 
               
-    def meta_help      
+    def pillow_helper      
       route = find_matching_route
       if route
-        eval(route.meta_method)
+        eval(route.pillow_method)
       end
     end
   

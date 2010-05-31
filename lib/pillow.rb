@@ -1,7 +1,7 @@
 # HeadElements
-require 'head_elements/core_ext'
-require 'head_elements/view_helpers'
-module HeadElements
+require 'pillow/core_ext'
+require 'pillow/view_helpers'
+module Pillow
   def self.extract_app_routes
     app_routes = ActionController::Routing::Routes.routes
     app_routes.each do |route|
@@ -43,14 +43,14 @@ module HeadElements
   
   class ExtractedRoute
     @@extracted_routes = []
-    METHOD_PREFIX      = '_meta_method'
+    METHOD_PREFIX      = '_pillow'
     attr_accessor :name, :requirements, :segments, :route
-    attr_reader   :meta_method
+    attr_reader   :pillow_method
     def initialize(name, requirements = {}, segments = '')
       @name         = name
       @requirements = requirements
       @segments     = segments
-      @meta_method  = name + METHOD_PREFIX
+      @pillow_method= name + METHOD_PREFIX
       @route        = Route.new
       @@extracted_routes.push(self)
     end
@@ -60,4 +60,4 @@ module HeadElements
     end
   end  
 end
-ApplicationController.send :include, HeadElements
+ApplicationController.send :include, Pillow
